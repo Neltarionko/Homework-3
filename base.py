@@ -21,7 +21,7 @@ def values(csv):
 
     GPSTime_prep = np.array(df['GPS Time'])
     DeviceTime_prep = np.array(df['Device Time'])
-    GPSSpeed = np.array(df['Speed (GPS)(km/h)'],dtype = 'float')
+    GPSSpeed_prep = np.array(df['Speed (GPS)(km/h)'],dtype = 'float')
     OBDSpeed = np.array(df['Speed (OBD)(km/h)'],dtype = 'float')
     Longitude = np.array(df['Longitude'],dtype = 'float')
     Latitude = np.array(df['Latitude'],dtype = 'float')
@@ -29,7 +29,11 @@ def values(csv):
 
     GPSTime = []
     DeviceTime = []
+    GPSSpeed = []
 
+    for i in range (0, len(GPSTime_prep),10):
+        GPSSpeed.append(GPSSpeed_prep[i])
+        
     GPSTime.append(0)
     for i in range (1, len(GPSTime_prep),10):
         GPSTime.append(i)

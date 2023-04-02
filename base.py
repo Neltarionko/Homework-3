@@ -35,8 +35,10 @@ def values(csv):
         GPSSpeed.append(GPSSpeed_prep[i])
         
     GPSTime.append(0)
+    k = 1
     for i in range (1, len(GPSTime_prep),10):
-        GPSTime.append(i)
+        GPSTime.append(k)
+        k += 1
 
     for i in range (len(DeviceTime_prep)):
         DeviceTime.append(i/10)

@@ -1,19 +1,33 @@
 class KF1():
-    def __init__(self,dmove,dsens):
-        self.dmove = dmove**2
-        self.dsens = dsens**2
+    def __init__(self,dmove,dOBP, dGPS):
+        self.dOBD = dOBP ** 2
+        self.dGPS = dGPS ** 2
+        self.dmove = dmove
         self.dtotal = 0
         self.mtotal = 0
 
-    def predict(self,v):
-        self.mtotal += v
+    def predict(self):
         self.dtotal += self.dmove
-        return self.mtotal,self.dtotal
-    def sens(self,v):
-        k = self.dtotal/(self.dtotal+self.dsens)
-        self.dtotal = k*self.dsens
+        #print('d Total',self.dtotal)
+        return self.mtotal,self.dtotal**0.5
+
+    def sensGPS(self,v):
+        k = self.dtotal/(self.dtotal + self.dGPS)
+        #print('k GPS',k)
+        self.dtotal = k*self.dGPS
         self.mtotal = self.mtotal + k*(v - self.mtotal)
-        return self.mtotal, self.dtotal
+        return self.mtotal, self.dtotal**0.5
+
+    def sensOBD(self,v):
+        k = self.dtotal/(self.dtotal + self.dOBD)
+        #print('k OBD', k)
+        self.dtotal = k*self.dOBD
+        self.mtotal = self.mtotal + k*(v - self.mtotal)
+        return self.mtotal, self.dtotal**0.5
+
+    def updatedisp(self, dOBP, dGPS):
+        self.dOBD = dOBP ** 2
+        self.dGPS = dGPS ** 2
 
 #kf = KF1(0.1,0.2)
 #print(kf.predict(1))

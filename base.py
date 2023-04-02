@@ -35,7 +35,7 @@ def values(csv):
         GPSTime.append(i)
 
     for i in range (len(DeviceTime_prep)):
-        DeviceTime.append(i)
+        DeviceTime.append(i/10)
 
     # Итоговые данные
 

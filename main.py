@@ -3,8 +3,6 @@ from kfspeed import *
 import matplotlib.pyplot as plt
 def main():
     GPSTime, DeviceTime, GPSSpeed, OBDSpeed, Longitude, Latitude, Bearing = values('data1.csv')
-    dGPS = 30
-    dOBD = 30
     speed = []
     kf = KF1()
     for k in range(len(GPSTime)):

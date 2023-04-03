@@ -30,7 +30,7 @@ def main():
                     kf.updatedisp(999999999999999, dGPS)
                 if (k - 15) // 60 >= 35 - 18 and (k - 15) // 60 <= 40 - 18 or (k - 15) // 60 >= 50 - 18:
                     kf.updatedisp(dOBD, dGPS)
-                    kf.predict()
+                kf.predict()
                 speed.append(kf.sensOBD(OBDSpeed[k*10+i]))
             except IndexError:
                 continue

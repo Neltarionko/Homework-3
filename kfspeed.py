@@ -13,12 +13,12 @@ class KF1():
         return self.mtotal, self.dtotal ** 0.5
 
     def sensGPS(self, v):
-        self.a = self.dtotal
+        self.a = self.mtotal
         k = self.dtotal / (self.dtotal + self.dGPS)
         # print('k GPS',k)
         self.dtotal = k * self.dGPS
         self.mtotal = self.mtotal + k * (v - self.mtotal)
-        self.a -= self.dtotal
+        self.a -= self.mtotal
         self.a *= -1
         return self.mtotal, self.dtotal ** 0.5
 

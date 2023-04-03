@@ -6,7 +6,7 @@ def main():
     dGPS = 30
     dOBD = 30
     speed = []
-    kf = KF1(200,dOBD,dGPS)
+    kf = KF1(dOBD,dGPS)
     for k in range(len(GPSTime)):
         dGPS = GPSSpeed[k]/10
         dOBD = OBDSpeed[k*10]/10

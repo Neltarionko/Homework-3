@@ -2,8 +2,8 @@ import math
 class KFx():
     def __init__(self,mtotalpos):
         self.dspeed = 0
-        self.dpos = 0
-        self.dtotalpos = mtotalpos/100000
+        self.dpos =  0.00001
+        self.dtotalpos =0.00001
         self.dtotalspeed = 0
         self.mtotalpos = mtotalpos
         self.mtotalspeed = 0
@@ -22,11 +22,9 @@ class KFx():
         self.a = self.v
         self.v = self.mtotalpos
         if v == -1:
-            self.dspeed = 9
-            self.dpos = 9
+            self.dspeed = 99999999999
         else:
             self.dspeed = v/10
-            self.dpos = x/10
         k = self.dtotalpos / (self.dtotalpos + self.dpos)
         self.dtotalpos = k * self.dpos
         self.mtotalpos = self.mtotalpos + k * (x - self.mtotalpos)
@@ -42,8 +40,8 @@ class KFx():
 class KFy():
     def __init__(self,mtotalpos):
         self.dspeed = 0
-        self.dpos = 0
-        self.dtotalpos = mtotalpos/10000
+        self.dpos = 0.00001
+        self.dtotalpos = 0.00001
         self.dtotalspeed = 0
         self.mtotalpos = mtotalpos
         self.mtotalspeed = 0
@@ -62,11 +60,9 @@ class KFy():
         self.a = self.v
         self.v = self.mtotalpos
         if v == -1:
-            self.dspeed = 9
-            self.dpos = 9
+            self.dspeed = 99999999999999
         else:
             self.dspeed = v/10
-            self.dpos = x/10
         k = self.dtotalpos / (self.dtotalpos + self.dpos)
         self.dtotalpos = k * self.dpos
         self.mtotalpos = self.mtotalpos + k * (x - self.mtotalpos)

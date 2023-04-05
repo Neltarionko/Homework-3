@@ -24,7 +24,7 @@ class KFx():
         if v == -1:
             self.dspeed = 99999999999
         else:
-            self.dspeed = v/10
+            self.dspeed = (v/10)**2
         k = self.dtotalpos / (self.dtotalpos + self.dpos)
         self.dtotalpos = k * self.dpos
         self.mtotalpos = self.mtotalpos + k * (x - self.mtotalpos)
@@ -62,7 +62,7 @@ class KFy():
         if v == -1:
             self.dspeed = 99999999999999
         else:
-            self.dspeed = v/10
+            self.dspeed = (v/10)**2
         k = self.dtotalpos / (self.dtotalpos + self.dpos)
         self.dtotalpos = k * self.dpos
         self.mtotalpos = self.mtotalpos + k * (x - self.mtotalpos)

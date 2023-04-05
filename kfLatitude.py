@@ -3,7 +3,7 @@ class KFx():
     def __init__(self,mtotalpos):
         self.dspeed = 0
         self.dpos =  0.00001
-        self.dtotalpos =0.00001
+        self.dtotalpos = 0.00001
         self.dtotalspeed = 0
         self.mtotalpos = mtotalpos
         self.mtotalspeed = 0
